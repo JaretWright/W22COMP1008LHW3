@@ -1,12 +1,12 @@
 package com.example.w22comp1008lhw3;
 
 import javafx.scene.image.Image;
-
 import java.util.Arrays;
 import java.util.List;
 
 public class Card {
     private String faceName, suit;
+    private Image cardImage;
 
     /**
      * This is a constructor.  It is different from a method for 2 reasons:
@@ -19,6 +19,11 @@ public class Card {
         setFaceName(faceName);
         setSuit(suit);
         String fileName = String.format("images/%s_of_%s.png",faceName,suit);
+        cardImage = new Image(getClass().getResource(fileName).toExternalForm());
+    }
+
+    public Image getCardImage() {
+        return cardImage;
     }
 
     public String getFaceName() {
