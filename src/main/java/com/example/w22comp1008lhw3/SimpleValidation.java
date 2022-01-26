@@ -7,5 +7,13 @@ public class SimpleValidation {
             System.out.println("validation works for: "+name);
         else
             System.out.println("validation failed for: "+name);
+
+        //Area code is the first 3 digits of a phone number
+        //705 - Barrie
+        //416, 905, 647 - Toronto
+        //2-9 0-9 0-9
+        String areaCode = "416";
+        if (areaCode.matches("[2-9][0-9][0-9]"))
+            System.out.println("valid area code");
     }
 }
