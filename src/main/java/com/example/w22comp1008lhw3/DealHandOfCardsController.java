@@ -48,6 +48,12 @@ public class DealHandOfCardsController implements Initializable {
         for (int i=1; i<=5; i++)
         {
             Card card = deck.dealTopCard();
+            if (card == null)
+            {
+                deckImageView.setVisible(false);
+                break;
+            }
+
             hand.add(card);  //this isn't truly necessary for this view only approach,
                              //but if you were creating a game, this is how you would give the hand
                              //to a player
