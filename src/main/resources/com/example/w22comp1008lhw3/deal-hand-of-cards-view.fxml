@@ -14,14 +14,14 @@
             <Image url="@images/wood%20table.png" />
          </image>
       </ImageView>
-      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="206.0" spacing="20.0">
+      <VBox fx:id="deckVBox" alignment="TOP_CENTER" layoutX="50.0" layoutY="206.0" spacing="20.0">
          <children>
             <ImageView fx:id="deckImageView" fitHeight="287.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/redCardBack.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" text="Deal Hand" />
+            <Button mnemonicParsing="false" onAction="#dealCards" text="Deal Hand" />
          </children>
       </VBox>
    </children>
