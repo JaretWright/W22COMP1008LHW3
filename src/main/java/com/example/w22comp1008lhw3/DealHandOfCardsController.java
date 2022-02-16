@@ -1,9 +1,12 @@
 package com.example.w22comp1008lhw3;
 
 import javafx.animation.TranslateTransition;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -63,7 +66,7 @@ public class DealHandOfCardsController implements Initializable {
             imageView.setLayoutY(deckPositionY);
 
             //add the image to the newly created Card
-            imageView.setImage(card.getCardImage());
+            imageView.setImage(new Image(getClass().getResource("images/redCardBack.png").toExternalForm()));
 
             //add the new Card image to the anchor pane
             anchorPane.getChildren().add(imageView);
@@ -74,6 +77,14 @@ public class DealHandOfCardsController implements Initializable {
             transition.setDuration(Duration.millis(2000));
             transition.setByX(300 + (i*50));
             transition.play();
+
+            //add a "event handler" for a mouse click on the imageview holding the card
+            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    imageView.setImage(card.getCardImage());
+                }
+            });
         }
     }
 }

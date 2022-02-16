@@ -1,3 +1,12 @@
 .root{
     -fx-font-size: 20px;
 }
+
+.button{
+    -fx-text-fill: rgb(104,83,65);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    /*-fx-padding: 20;*/
+    -fx-border-width: 5;
+    -fx-effect: dropshadow(one-pass-box, black, 8, 0.0, 2, 0);
+}
