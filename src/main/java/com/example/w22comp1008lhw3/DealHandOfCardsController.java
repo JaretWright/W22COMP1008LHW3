@@ -1,10 +1,12 @@
 package com.example.w22comp1008lhw3;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class DealHandOfCardsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         deck = new DeckOfCards();
+        deck.shuffle();
     }
 
     /**
@@ -61,6 +64,16 @@ public class DealHandOfCardsController implements Initializable {
 
             //add the image to the newly created Card
             imageView.setImage(card.getCardImage());
+
+            //add the new Card image to the anchor pane
+            anchorPane.getChildren().add(imageView);
+
+            //animate the card to slide across the table
+            TranslateTransition transition = new TranslateTransition();
+            transition.setNode(imageView);
+            transition.setDuration(Duration.millis(2000));
+            transition.setByX(300 + (i*50));
+            transition.play();
         }
     }
 }
