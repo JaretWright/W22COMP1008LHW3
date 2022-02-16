@@ -4,6 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -64,8 +65,10 @@ public class DealHandOfCardsController implements Initializable {
             imageView.setFitHeight(287);
 
             //get the position of the upper left corner of the deck of cards
-            double deckPositionX = deckVBox.getLayoutX();
-            double deckPositionY = deckVBox.getLayoutY();
+            Bounds boundsForImageView = deckImageView.localToScene(deckImageView.getBoundsInLocal());
+            double deckPositionX = boundsForImageView.getMinX();
+            double deckPositionY = boundsForImageView.getMinY();
+            System.out.println(deckPositionX + "," + deckPositionY);
 
             //configure the new Card object to be positioned on top of the deck of cards
             imageView.setLayoutX(deckPositionX);
